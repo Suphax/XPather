@@ -1,0 +1,64 @@
+﻿<Window x:Class="XPather.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XPather"
+        mc:Ignorable="d"
+        Title="XPather" Height="550" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <GroupBox Header="XPath Expression" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Padding="5">
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Row="1" Grid.Column="0" Margin="0 0 5 0"  x:Name="txtXPath" TabIndex="1"/>
+                    <Button x:Name="btnRun" Grid.Row="0" Grid.Column="3" Padding="7 3 7 3" Content="Run" VerticalAlignment="Bottom" TabIndex="2" Click="btnRun_Click"/>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Header="XML" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Padding="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="txtxml" Grid.Row="1" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" TabIndex="3"/>
+                    <Button x:Name="btnLoadXML" Grid.Row="2" Content="Load XML" Margin="0 5 0 0" Padding="7 3 7 3" HorizontalAlignment="Right" TabIndex="5"/>
+                    <Button x:Name="btnClearXML" Grid.Row="2" Content="Clear" Margin="0 5 0 0" Padding="7 3 7 3" HorizontalAlignment="Left" Click="btnClearXML_Click" TabIndex="4"/>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Header="XPath Query Result" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Padding="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="txtoutput" Grid.Row="1" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" TabIndex="6"/>
+                </Grid>
+            </GroupBox>
+            <Border x:Name="brdrStatus" ToolTip="Idle"  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" BorderThickness="1" Padding="5" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" >
+                <TextBlock Text="Idle" x:Name="lblStatus" />
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
